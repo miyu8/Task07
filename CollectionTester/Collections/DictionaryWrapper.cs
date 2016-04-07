@@ -1,18 +1,19 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using CollectionTester.Interfaces;
 using CollectionTester.Model;
 using Generate;
 
 namespace CollectionTester.Collections
 {
-    class ListWrapper : ICollectionWrapper
+    class DictionaryWrapper : ICollectionWrapper
     {
-        protected List<string> internalList = new List<string>();
+        protected Dictionary<string, bool> internalList = new Dictionary<string, bool>();
         public CollectionType CollectionType
         {
             get
             {
-                return CollectionType.List;
+                return CollectionType.Dictionary;
             }
         }
 
@@ -37,13 +38,14 @@ namespace CollectionTester.Collections
             GenerateRandom generaterandom = new GenerateRandom();
             for (int i = 0; i < count_strings; i++)
             {
-                internalList.Add(generaterandom.RandomString(size_string));
+                internalList.Add(generaterandom.RandomString(size_string), true);
             }
         }
 
         public bool Contains(string word)
         {
-            return internalList.Contains(word);
+            bool logic;
+            return internalList.TryGetValue(word, out logic);
         }
 
         public void Delete(int count_strings)
@@ -52,9 +54,9 @@ namespace CollectionTester.Collections
                 count_strings = internalList.Count;
             for (int i = 0; i < count_strings; i++)
             {
-                internalList.RemoveAt(0);
+                internalList.Remove(internalList.FirstOrDefault().Key);
             }
-
         }
     }
 }
+

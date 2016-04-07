@@ -1,18 +1,18 @@
-﻿using System.Collections.Generic;
-using CollectionTester.Interfaces;
+﻿using CollectionTester.Interfaces;
 using CollectionTester.Model;
 using Generate;
+using System.Collections;
 
 namespace CollectionTester.Collections
 {
-    class ListWrapper : ICollectionWrapper
+    class ArrayListWrapper : ICollectionWrapper
     {
-        protected List<string> internalList = new List<string>();
+        protected ArrayList internalList = new ArrayList();
         public CollectionType CollectionType
         {
             get
             {
-                return CollectionType.List;
+                return CollectionType.ArrayList;
             }
         }
 
@@ -51,10 +51,7 @@ namespace CollectionTester.Collections
             if (count_strings > internalList.Count)
                 count_strings = internalList.Count;
             for (int i = 0; i < count_strings; i++)
-            {
                 internalList.RemoveAt(0);
-            }
-
         }
     }
 }
