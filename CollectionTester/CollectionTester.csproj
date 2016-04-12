@@ -44,12 +44,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Collections\ArrayListWrapper.cs" />
+    <Compile Include="Collections\DictionaryGetHashCodeWrapper.cs" />
+    <Compile Include="Collections\DictionaryWrapper.cs" />
+    <Compile Include="Collections\HashSetWrapper.cs" />
+    <Compile Include="Collections\HashtableGetHashCodeWrapper .cs" />
+    <Compile Include="Collections\HashtableWrapper.cs" />
     <Compile Include="Collections\ListWrapper.cs" />
+    <Compile Include="Collections\miyu8_TestCollection.cs" />
+    <Compile Include="Collections\SortedListWrapper.cs" />
+    <Compile Include="Collections\StringWrapper.cs" />
     <Compile Include="Interfaces\ICollectionFactory.cs" />
     <Compile Include="Interfaces\ICollectionTester.cs" />
     <Compile Include="Interfaces\ICollectionWrapper.cs" />
     <Compile Include="Interfaces\IController.cs" />
+    <Compile Include="Model\Controller.cs" />
     <Compile Include="Model\CollectionType.cs" />
+    <Compile Include="Model\GenerateRandom.cs" />
     <Compile Include="Model\TestingResult.cs" />
     <Compile Include="Model\TestOptions.cs" />
     <Compile Include="Program.cs" />

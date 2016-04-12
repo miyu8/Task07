@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CollectionTester.Interfaces
+﻿namespace CollectionTester.Interfaces
 {
-	public interface IController
-	{
-		void TestAllCollectionsAndDisplayResults();
-	}
+    public interface IController
+    {
+        void TestAllCollectionsAndDisplayResults(int count_strings, int size_string);
+    }
 }

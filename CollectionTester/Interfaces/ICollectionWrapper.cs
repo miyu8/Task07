@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CollectionTester.Model;
+﻿using CollectionTester.Model;
 
 namespace CollectionTester.Interfaces
 {
-	public interface ICollectionWrapper
-	{
-		CollectionType CollectionType { get; }
-		string SystemTypeName { get; }
-		int Count { get; }
+    public interface ICollectionWrapper
+    {
+        CollectionType CollectionType { get; }
+        string SystemTypeName { get; }
+        int Count { get; }
 
-		void Add(string word);
-		void DeleteOneWord();
-		bool Contains(string word);
-	}
+        void Add(int count_strings, int size_string);
+        void Delete(int count_strings);
+        bool Contains(string word);
+    }
 }

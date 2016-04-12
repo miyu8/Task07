@@ -1,18 +1,24 @@
-﻿using System.Collections.Generic;
-using CollectionTester.Interfaces;
+﻿using CollectionTester.Interfaces;
 using CollectionTester.Model;
 using Generate;
+using System.Collections;
 
 namespace CollectionTester.Collections
 {
-    class ListWrapper : ICollectionWrapper
+    class DictionaryGetHashCodeWrapper : ICollectionWrapper
     {
-        protected List<string> internalList = new List<string>();
+        protected Hashtable internalList = new Hashtable();
+        protected ListWrapper liststring = new ListWrapper();
+        public DictionaryGetHashCodeWrapper(ListWrapper liststring)
+        {
+            this.liststring = liststring;
+        }
+
         public CollectionType CollectionType
         {
             get
             {
-                return CollectionType.List;
+                return CollectionType.DictionaryGetHashCode;
             }
         }
 
@@ -37,7 +43,14 @@ namespace CollectionTester.Collections
             GenerateRandom generaterandom = new GenerateRandom();
             for (int i = 0; i < count_strings; i++)
             {
-                internalList.Add(generaterandom.RandomString(size_string));
+                try
+                {
+                    internalList.Add(generaterandom.RandomString(size_string).GetHashCode(), liststring);
+                }
+                catch
+                {
+                    internalList.Add((double)i, liststring);
+                }
             }
         }
 
@@ -50,11 +63,14 @@ namespace CollectionTester.Collections
         {
             if (count_strings > internalList.Count)
                 count_strings = internalList.Count;
+            IDictionaryEnumerator myEnumerator = internalList.GetEnumerator();
+            myEnumerator.MoveNext();
             for (int i = 0; i < count_strings; i++)
             {
-                internalList.RemoveAt(0);
+                internalList.Remove(myEnumerator.Key);
+                myEnumerator = internalList.GetEnumerator();
+                myEnumerator.MoveNext();
             }
-
         }
     }
 }
