@@ -2,19 +2,17 @@
 using System.Linq;
 using CollectionTester.Interfaces;
 using CollectionTester.Model;
-using Generate;
 
 namespace CollectionTester.Collections
 {
-    class miyu8_TestCollection : ICollectionWrapper
+    class StringWrapper : ICollectionWrapper
     {
         protected string[] internalList = null;
         public CollectionType CollectionType
         {
             get
             {
-                return CollectionType.miyu8_TestCollection;
-                //internalList
+                return CollectionType.String;
             }
         }
 
@@ -34,16 +32,13 @@ namespace CollectionTester.Collections
             }
         }
 
-        public void Add(int count_strings, int size_string)
+        public void Add(string word)
         {
             int j = 0;
             if (internalList != null)
                 j = internalList.Length;
-            Array.Resize<string>(ref internalList, j + count_strings);
-            GenerateRandom generaterandom = new GenerateRandom();
-            for (int i = 0; i < count_strings; i++)
-                internalList[i] = generaterandom.RandomString(size_string);
-            Array.Sort(internalList);
+            Array.Resize<string>(ref internalList, j + 1);
+            internalList[internalList.Length - 1] = word;
         }
 
         public bool Contains(string word)
@@ -51,12 +46,9 @@ namespace CollectionTester.Collections
             return internalList.Contains(word);
         }
 
-        public void Delete(int count_strings)
+        public void DeleteOneWord()
         {
-            if (count_strings > internalList.Length)
-                count_strings = internalList.Length;
-            Array.Resize<string>(ref internalList, internalList.Length - count_strings);
+            Array.Resize<string>(ref internalList, internalList.Length - 1);
         }
     }
 }
-

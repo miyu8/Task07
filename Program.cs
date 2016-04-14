@@ -8,7 +8,7 @@ namespace CollectionTester
         static void Main(string[] args)
         {
             MyController mycontroller = new MyController();
-            mycontroller.TestAllCollectionsAndDisplayResults(2000, 10);
+            mycontroller.TestAllCollectionsAndDisplayResults(10000, 10000, 10000, 10);
             Console.ReadKey();
         }
     }
