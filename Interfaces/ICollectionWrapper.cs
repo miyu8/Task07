@@ -7,9 +7,8 @@ namespace CollectionTester.Interfaces
         CollectionType CollectionType { get; }
         string SystemTypeName { get; }
         int Count { get; }
-
-        void Add(int count_strings, int size_string);
-        void Delete(int count_strings);
+        void Add(string word);
+        void DeleteOneWord();
         bool Contains(string word);
     }
 }

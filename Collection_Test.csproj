@@ -4,15 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6712AB0F-8758-495A-9819-04999D9D3780}</ProjectGuid>
+    <ProjectGuid>{D0A41F48-6CED-4267-8AAE-410429C943C3}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CollectionTester</RootNamespace>
-    <AssemblyName>CollectionTester</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>Collection_Test</RootNamespace>
+    <AssemblyName>Collection_Test</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -54,22 +53,18 @@
     <Compile Include="Collections\miyu8_TestCollection.cs" />
     <Compile Include="Collections\SortedListWrapper.cs" />
     <Compile Include="Collections\StringWrapper.cs" />
-    <Compile Include="Interfaces\ICollectionFactory.cs" />
-    <Compile Include="Interfaces\ICollectionTester.cs" />
     <Compile Include="Interfaces\ICollectionWrapper.cs" />
     <Compile Include="Interfaces\IController.cs" />
-    <Compile Include="Model\Controller.cs" />
     <Compile Include="Model\CollectionType.cs" />
+    <Compile Include="Model\Controller.cs" />
     <Compile Include="Model\GenerateRandom.cs" />
     <Compile Include="Model\TestingResult.cs" />
-    <Compile Include="Model\TestOptions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

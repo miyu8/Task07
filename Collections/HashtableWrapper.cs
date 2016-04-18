@@ -1,6 +1,5 @@
 ﻿using CollectionTester.Interfaces;
 using CollectionTester.Model;
-using Generate;
 using System.Collections;
 
 namespace CollectionTester.Collections
@@ -32,20 +31,17 @@ namespace CollectionTester.Collections
             }
         }
 
-        public void Add(int count_strings, int size_string)
+        public void Add(string word)
         {
-            GenerateRandom generaterandom = new GenerateRandom();
-            for (int i = 0; i < count_strings; i++)
+            try
             {
-                try
-                {
-                    internalList.Add(generaterandom.RandomString(size_string), true);
-                }
-                catch
-                {
-                    internalList.Add(i, i);
-                }
+                internalList.Add(word, true);
             }
+            catch
+            {
+
+            }
+
         }
 
         public bool Contains(string word)
@@ -53,18 +49,11 @@ namespace CollectionTester.Collections
             return internalList.Contains(word);
         }
 
-        public void Delete(int count_strings)
+        public void DeleteOneWord()
         {
-            if (count_strings > internalList.Count)
-                count_strings = internalList.Count;
             IDictionaryEnumerator myEnumerator = internalList.GetEnumerator();
             myEnumerator.MoveNext();
-            for (int i = 0; i < count_strings; i++)
-            {
-                internalList.Remove(myEnumerator.Key);
-                myEnumerator = internalList.GetEnumerator();
-                myEnumerator.MoveNext();
-            }
+            internalList.Remove(myEnumerator.Key);
         }
     }
 }
